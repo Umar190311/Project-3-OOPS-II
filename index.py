@@ -1,41 +1,27 @@
-
 class Expression:
+
     # Constructor
-    def __init__(self, expression):
-        self.expression = expression
+    def __init__(self, a, b, c):
+        self.a = a
+        self.b = b
+        self.c = c
         print("Expression object created.")
 
-    def evaluate(self):
-        try:
-            # Evaluating
-            result = eval(self.expression)
-            return result
-        except Exception as e:
-            print(f"Error evaluating expression: {e}")
-            return None
+    # Method
+    def calculate_sum(self):
+        return self.a + self.b + self.c
 
-    # Using method
-    def display_result(self):
-        result = self.evaluate()
-        if result is not None:
-            print(f"The result of '{self.expression}' is: {result}")
-        else:
-            print("Could not compute the result.")
-
-    # Destructor
+    # DEstructor
     def __del__(self):
         print("Expression object deleted.")
 
 
-if __name__ == "__main__":
-    print("Welcome to the Expression Solver!")
-    expr_input = input("Enter a mathematical expression (e.g., 5 + 3 * 2): ")
+# Object Creation
+obj = Expression(10, 20, 30)
 
-    # Creating object
-    expr = Expression(expr_input)
+# Calling method
+result = obj.calculate_sum()
+print("The sum of the expression is:", result)
 
-
-    expr.display_result()
-
-    # Deleting object
-    del expr
+# Deleting object
+del obj
